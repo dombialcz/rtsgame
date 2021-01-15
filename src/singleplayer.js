@@ -18,6 +18,11 @@ var singleplayer = {
         // Load all the items for the level
         var level = levels.singleplayer[singleplayer.currentLevel];
         game.loadLevelData(level);
+
+        // Set player starting location
+        game.offsetX = level.startX * game.gridSize;
+        game.offsetY = level.startY * game.gridSize;
+
         // Enable the Enter Mission button once all assets are loaded 
         loader.onload = function() {
             enterMissionButton.disabled = false;
