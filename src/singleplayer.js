@@ -38,7 +38,8 @@ var singleplayer = {
         screen.showScreen("gamestartscreen");
     },
     play: function() {
-        // Run the animation loop once game.animationLoop();
+        // Run the animation loop once 
+        game.animationLoop();
         // Start the animation loop interval
         game.animationInterval = setInterval(game.animationLoop, game.animationTimeout);
         game.start();

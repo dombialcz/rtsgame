@@ -36,8 +36,8 @@ var game = {
 
     start: function() {
         // Display the game interface 
-        game.hideScreens();
-        game.showScreen("gameinterfacescreen");
+        screen.hideScreens();
+        screen.showScreen("gameinterfacescreen");
         game.running = true;
         game.refreshBackground = true;
         game.canvasResized = true;
@@ -52,6 +52,15 @@ var game = {
     // X & Y panning offsets for the map
     offsetX: 0,
     offsetY: 0,
+
+    drawingLoop: function() {
+        // Draw the background whenever necessary 
+        game.drawBackground();
+        // Call the drawing loop for the next frame using request animation frame 
+        if (game.running) {
+            requestAnimationFrame(game.drawingLoop);
+        }
+    },
 
     drawBackground: function() {
         // Since drawing the background map is a fairly large operation,
